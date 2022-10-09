@@ -12,7 +12,10 @@ function App() {
     {
       path: '/', element: <Main></Main>, children: [
         {
-          path: '/', element: <Shop></Shop>
+          path: '/',
+          loader: () => fetch('products.json'),
+
+          element: <Shop></Shop>
         },
         {
           path: 'about', element: <About></About>
