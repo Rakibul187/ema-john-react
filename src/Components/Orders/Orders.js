@@ -9,7 +9,7 @@ const Orders = () => {
     const [cart, setCart] = useState(initialCart)
 
     const handleReviewItem = (id) => {
-        const remainingProducts = cart.filter(product => product.id !== id)
+        const remainingProducts = cart.filter(product => product._id !== id)
         setCart(remainingProducts)
         removeFromDb(id)
     }
@@ -22,13 +22,18 @@ const Orders = () => {
     return (
         <div className='shop-container'>
             <div className='orders-container'>
-                {cart.map(product => <ReviewItem key={product.id} product={product} handleReviewItem={handleReviewItem}></ReviewItem>)}
+                {cart.map(product => <ReviewItem key={product._id} product={product} handleReviewItem={handleReviewItem}></ReviewItem>)}
                 {
                     cart.length === 0 && <h2>No Items For Review. Please <Link to='/'>Shop More</Link></h2>
                 }
             </div>
             <div className='cart-container'>
-                <Cart clearCart={clearCart} cart={cart}></Cart>
+                <Cart clearCart={clearCart} cart={cart}>
+
+                    <Link to='/shipping'>
+                        <button>Procced Shipping</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );

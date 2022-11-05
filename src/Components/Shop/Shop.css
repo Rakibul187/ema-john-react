@@ -16,6 +16,22 @@
     background-color: rgba(255, 153, 0, 0.3);
 }
 
+
+.pagination {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.pagination button {
+    margin-right: 20px;
+}
+
+.pagination .selected {
+    background-color: chocolate;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
 @media screen and (max-width:1100px) {
     .product-container {
         display: grid;
